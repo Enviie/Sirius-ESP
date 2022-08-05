@@ -23,12 +23,12 @@ local EspLibrary = {
         teamCheck = false,
         teamColor = false,
         fillColor = nil,
-        whitelistColor = Color3.new(1, 0, 0),
+        whitelistColor = Color3.fromRGB(140, 0, 255),
         outOfViewArrows = false,
         outOfViewArrowsFilled = true,
         outOfViewArrowsSize = 25,
         outOfViewArrowsRadius = 100,
-        outOfViewArrowsColor = Color3.new(1, 1, 1),
+        outOfViewArrowsColor = Color3.fromRGB(18, 184, 255),
         outOfViewArrowsTransparency = 0.5,
         outOfViewArrowsOutline = false,
         outOfViewArrowsOutlineFilled = false,
@@ -36,33 +36,33 @@ local EspLibrary = {
         outOfViewArrowsOutlineTransparency = 1,
         names = true,
         nameTransparency = 1,
-        nameColor = Color3.new(1, 1, 1),
+        nameColor = Color3.fromRGB(18, 184, 255),
         boxes = true,
         boxesTransparency = 1,
-        boxesColor = Color3.new(1, 0, 0),
+        boxesColor = Color3.fromRGB(18, 184, 255),
         boxFill = false,
         boxFillTransparency = 0.5,
-        boxFillColor = Color3.new(1, 0, 0),
+        boxFillColor = Color3.fromRGB(18, 184, 255),
         healthBars = true,
         healthBarsSize = 1,
         healthBarsTransparency = 1,
-        healthBarsColor = Color3.new(0, 1, 0),
+        healthBarsColor = Color3.fromRGB(21, 255, 0),
         healthText = true,
         healthTextTransparency = 1,
         healthTextSuffix = "%",
-        healthTextColor = Color3.new(1, 1, 1),
+        healthTextColor = Color3.fromRGB(18, 184, 255),
         distance = true,
         distanceTransparency = 1,
         distanceSuffix = " Studs",
-        distanceColor = Color3.new(1, 1, 1),
+        distanceColor = Color3.fromRGB(18, 184, 255),
         tracers = false,
         tracerTransparency = 1,
-        tracerColor = Color3.new(1, 1, 1),
+        tracerColor = Color3.fromRGB(18, 184, 255),
         tracerOrigin = "Bottom", -- Available [Mouse, Top, Bottom]
         chams = true,
-        chamsFillColor = Color3.new(1, 0, 0),
+        chamsFillColor = Color3.fromRGB(18, 184, 255),
         chamsFillTransparency = 0.5,
-        chamsOutlineColor = Color3.new(),
+        chamsOutlineColor = Color3.fromRGB(255, 255, 255),
         chamsOutlineTransparency = 0
     },
 }
@@ -73,7 +73,6 @@ local drawingNew = Drawing.new
 local vector2New = Vector2.new
 local vector3New = Vector3.new
 local cframeNew = CFrame.new
-local color3New = Color3.new
 local raycastParamsNew = RaycastParams.new
 local tan = math.tan
 local rad = math.rad
@@ -183,20 +182,20 @@ function EspLibrary.AddEsp(player)
             Center = true,
             Size = 13,
             Outline = true,
-            OutlineColor = color3New(),
+            OutlineColor = Color3.fromRGB(),
             Font = 2,
         }),
         side = create("Text", {
             Size = 13,
             Outline = true,
-            OutlineColor = color3New(),
+            OutlineColor = Color3.fromRGB(),
             Font = 2,
         }),
         bottom = create("Text", {
             Center = true,
             Size = 13,
             Outline = true,
-            OutlineColor = color3New(),
+            OutlineColor = Color3.fromRGB(),
             Font = 2,
         }),
         boxFill = create("Square", {
@@ -205,14 +204,14 @@ function EspLibrary.AddEsp(player)
         }),
         boxOutline = create("Square", {
             Thickness = 3,
-            Color = color3New()
+            Color = Color3.fromRGB()
         }),
         box = create("Square", {
             Thickness = 1
         }),
         healthBarOutline = create("Square", {
             Thickness = 1,
-            Color = color3New(),
+            Color = Color3.fromRGB(),
             Filled = true
         }),
         healthBar = create("Square", {
