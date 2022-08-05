@@ -98,7 +98,7 @@ local function create(type, properties)
     local object = drawing and drawingNew(type) or instanceNew(type)
 
     if (properties) then
-        for i,v in next, properties do
+        for i,v in pairs(properties) do
             object[i] = v
         end
     end
@@ -223,7 +223,7 @@ function EspLibrary.RemoveEsp(player)
     if (espCache) then
         EspLibrary.espCache[player] = nil
 
-        for index, object in next, espCache do
+        for index, object in pairs(espCache) do
             espCache[index] = nil
             object:Remove()
         end
@@ -250,20 +250,20 @@ function EspLibrary.RemoveChams(player)
 end
 
 function EspLibrary.Unload()
-    for _, connection in next, EspLibrary.conns do
+    for _, connection in pairs(EspLibrary.conns) do
         connection:Disconnect()
     end
 
-    for _, player in next, players:GetPlayers() do
+    for _, player in pairs(players:GetPlayers()) do
         EspLibrary.RemoveEsp(player)
         EspLibrary.RemoveChams(player)
     end
 
-    for _, object in next, EspLibrary.drawings do
+    for _, object in pairs(EspLibrary.drawings) do
         object:Remove()
     end
 
-    for _, object in next, EspLibrary.instances do
+    for _, object in pairs(EspLibrary.instances) do
         object:Destroy()
     end
 
@@ -283,13 +283,13 @@ function EspLibrary.Init()
         EspLibrary.RemoveChams(player)
     end))
 
-    for _, player in next, players:GetPlayers() do
+    for _, player in pairs(players:GetPlayers()) do
         EspLibrary.AddEsp(player)
         EspLibrary.AddChams(player)
     end
 
     runService:BindToRenderStep("esp_rendering", Enum.RenderPriority.Camera.Value + 1, function()
-        for player, objects in next, EspLibrary.espCache do
+        for player, objects in pairs(EspLibrary.espCache) do
             local character, torso = EspLibrary.GetCharacter(player)
 
             if (character and torso) then
@@ -420,13 +420,13 @@ function EspLibrary.Init()
                     origin == "Bottom" and vector2New(viewportSize.X * 0.5, viewportSize.Y)
                 objects.line.To = torsoPosition
             else
-                for _, object in next, objects do
+                for _, object in pairs(objects) do
                     object.Visible = false
                 end
             end
         end
 
-        for player, highlight in next, EspLibrary.chamsCache do
+        for player, highlight in pairs(EspLibrary.chamsCache) do
             local character, torso = EspLibrary.GetCharacter(player)
 
             if (character and torso) then
