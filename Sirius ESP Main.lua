@@ -127,7 +127,7 @@ function EspLibrary.GetTeam(player)
 end
 
 function EspLibrary.GetCharacter(player)
-    local character = player.Character
+    local character = player
     return character, character and findFirstChild(character, "HumanoidRootPart")
 end
 
@@ -273,21 +273,6 @@ function EspLibrary.Unload()
 end
 
 function EspLibrary.Init()
-    insert(EspLibrary.conns, players.PlayerAdded:Connect(function(player)
-        EspLibrary.AddEsp(player)
-        EspLibrary.AddChams(player)
-    end))
-
-    insert(EspLibrary.conns, players.PlayerRemoving:Connect(function(player)
-        EspLibrary.RemoveEsp(player)
-        EspLibrary.RemoveChams(player)
-    end))
-
-    for _, player in pairs(players:GetPlayers()) do
-        EspLibrary.AddEsp(player)
-        EspLibrary.AddChams(player)
-    end
-
     runService:BindToRenderStep("esp_rendering", Enum.RenderPriority.Camera.Value + 1, function()
         for player, objects in pairs(EspLibrary.espCache) do
             local character, torso = EspLibrary.GetCharacter(player)
