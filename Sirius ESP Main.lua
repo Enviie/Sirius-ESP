@@ -458,9 +458,9 @@ function EspLibrary.Init()
                 highlight.Enabled = canShow
                 highlight.DepthMode = EspLibrary.options.visibleOnly and Enum.HighlightDepthMode.Occluded or Enum.HighlightDepthMode.AlwaysOnTop
                 highlight.Adornee = character
-                highlight.FillColor = color or EspLibrary.options.chamsFillColor
+                highlight.FillColor = color or EspLibrary.options.espColor
                 highlight.FillTransparency = EspLibrary.options.chamsFillTransparency
-                highlight.OutlineColor = color or EspLibrary.options.espColor
+                highlight.OutlineColor = color or EspLibrary.options.chamsOutlineColor
                 highlight.OutlineTransparency = EspLibrary.options.chamsOutlineTransparency
             end
         end
