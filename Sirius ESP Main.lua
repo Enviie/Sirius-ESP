@@ -24,11 +24,11 @@ local EspLibrary = {
         teamColor = false,
         fillColor = nil,
         whitelistColor = Color3.fromRGB(140, 0, 255),
+        espColor = Color3.fromRGB(18, 184, 255),
         outOfViewArrows = false,
         outOfViewArrowsFilled = true,
         outOfViewArrowsSize = 25,
         outOfViewArrowsRadius = 100,
-        outOfViewArrowsColor = Color3.fromRGB(18, 184, 255),
         outOfViewArrowsTransparency = 0.5,
         outOfViewArrowsOutline = false,
         outOfViewArrowsOutlineFilled = false,
@@ -36,13 +36,10 @@ local EspLibrary = {
         outOfViewArrowsOutlineTransparency = 1,
         names = true,
         nameTransparency = 1,
-        nameColor = Color3.fromRGB(18, 184, 255),
         boxes = true,
         boxesTransparency = 1,
-        boxesColor = Color3.fromRGB(18, 184, 255),
         boxFill = false,
         boxFillTransparency = 0.5,
-        boxFillColor = Color3.fromRGB(18, 184, 255),
         healthBars = true,
         healthBarsSize = 1,
         healthBarsTransparency = 1,
@@ -50,17 +47,13 @@ local EspLibrary = {
         healthText = true,
         healthTextTransparency = 1,
         healthTextSuffix = "%",
-        healthTextColor = Color3.fromRGB(18, 184, 255),
         distance = true,
         distanceTransparency = 1,
         distanceSuffix = " Studs",
-        distanceColor = Color3.fromRGB(18, 184, 255),
         tracers = false,
         tracerTransparency = 1,
-        tracerColor = Color3.fromRGB(18, 184, 255),
         tracerOrigin = "Bottom", -- Available [Mouse, Top, Bottom]
         chams = true,
-        chamsFillColor = Color3.fromRGB(18, 184, 255),
         chamsFillTransparency = 0.5,
         chamsOutlineColor = Color3.fromRGB(255, 255, 255),
         chamsOutlineTransparency = 0
@@ -353,7 +346,7 @@ function EspLibrary.Init()
                 objects.arrow.Visible = (not canShow and enabled) and EspLibrary.options.outOfViewArrows
                 objects.arrow.Filled = EspLibrary.options.outOfViewArrowsFilled
                 objects.arrow.Transparency = EspLibrary.options.outOfViewArrowsTransparency
-                objects.arrow.Color = color or EspLibrary.options.outOfViewArrowsColor
+                objects.arrow.Color = color or EspLibrary.options.espColor
                 objects.arrow.PointA = pointA
                 objects.arrow.PointB = pointB
                 objects.arrow.PointC = pointC
@@ -370,7 +363,7 @@ function EspLibrary.Init()
                 objects.top.Font = EspLibrary.options.font
                 objects.top.Size = EspLibrary.options.fontSize
                 objects.top.Transparency = EspLibrary.options.nameTransparency
-                objects.top.Color = color or EspLibrary.options.nameColor
+                objects.top.Color = color or EspLibrary.options.espColor
                 objects.top.Text = player.Name
                 objects.top.Position = round(position + vector2New(size.X * 0.5, -(objects.top.TextBounds.Y + 2)))
 
@@ -378,7 +371,7 @@ function EspLibrary.Init()
                 objects.side.Font = EspLibrary.options.font
                 objects.side.Size = EspLibrary.options.fontSize
                 objects.side.Transparency = EspLibrary.options.healthTextTransparency
-                objects.side.Color = color or EspLibrary.options.healthTextColor
+                objects.side.Color = color or EspLibrary.options.espColor
                 objects.side.Text = health .. EspLibrary.options.healthTextSuffix
                 objects.side.Position = round(position + vector2New(size.X + 3, -3))
 
@@ -386,12 +379,12 @@ function EspLibrary.Init()
                 objects.bottom.Font = EspLibrary.options.font
                 objects.bottom.Size = EspLibrary.options.fontSize
                 objects.bottom.Transparency = EspLibrary.options.distanceTransparency
-                objects.bottom.Color = color or EspLibrary.options.nameColor
+                objects.bottom.Color = color or EspLibrary.options.espColor
                 objects.bottom.Text = tostring(round(distance)) .. EspLibrary.options.distanceSuffix
                 objects.bottom.Position = round(position + vector2New(size.X * 0.5, size.Y + 1))
 
                 objects.box.Visible = show and EspLibrary.options.boxes
-                objects.box.Color = color or EspLibrary.options.boxesColor
+                objects.box.Color = color or EspLibrary.options.espColor
                 objects.box.Transparency = EspLibrary.options.boxesTransparency
                 objects.box.Size = size
                 objects.box.Position = position
@@ -402,7 +395,7 @@ function EspLibrary.Init()
                 objects.boxOutline.Position = position
 
                 objects.boxFill.Visible = show and EspLibrary.options.boxFill
-                objects.boxFill.Color = color or EspLibrary.options.boxFillColor
+                objects.boxFill.Color = color or EspLibrary.options.espColor
                 objects.boxFill.Transparency = EspLibrary.options.boxFillTransparency
                 objects.boxFill.Size = size
                 objects.boxFill.Position = position
@@ -419,7 +412,7 @@ function EspLibrary.Init()
                 objects.healthBarOutline.Position = healthBarPosition - vector2New(1, -1)
 
                 objects.line.Visible = show and EspLibrary.options.tracers
-                objects.line.Color = color or EspLibrary.options.tracerColor
+                objects.line.Color = color or EspLibrary.options.espColor
                 objects.line.Transparency = EspLibrary.options.tracerTransparency
                 objects.line.From =
                     origin == "Mouse" and userInputService:GetMouseLocation() or
@@ -467,7 +460,7 @@ function EspLibrary.Init()
                 highlight.Adornee = character
                 highlight.FillColor = color or EspLibrary.options.chamsFillColor
                 highlight.FillTransparency = EspLibrary.options.chamsFillTransparency
-                highlight.OutlineColor = color or EspLibrary.options.chamsOutlineColor
+                highlight.OutlineColor = color or EspLibrary.options.espColor
                 highlight.OutlineTransparency = EspLibrary.options.chamsOutlineTransparency
             end
         end
