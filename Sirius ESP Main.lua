@@ -27,6 +27,7 @@ local EspLibrary = {
         fillColor = nil,
         whitelistColor = Color3.fromRGB(140, 0, 255),
         espColor = Color3.fromRGB(18, 184, 255),
+        NpcespColor = Color3.fromRGB(18, 184, 255),
         outOfViewArrows = false,
         outOfViewArrowsFilled = true,
         outOfViewArrowsSize = 25,
@@ -512,7 +513,7 @@ function EspLibrary.Init()
                 objects.arrow.Visible = (not canShow and enabled) and EspLibrary.options.outOfViewArrows
                 objects.arrow.Filled = EspLibrary.options.outOfViewArrowsFilled
                 objects.arrow.Transparency = EspLibrary.options.outOfViewArrowsTransparency
-                objects.arrow.Color = color or EspLibrary.options.espColor
+                objects.arrow.Color = color or EspLibrary.options.NpcespColor
                 objects.arrow.PointA = pointA
                 objects.arrow.PointB = pointB
                 objects.arrow.PointC = pointC
@@ -529,7 +530,7 @@ function EspLibrary.Init()
                 objects.top.Font = EspLibrary.options.font
                 objects.top.Size = EspLibrary.options.fontSize
                 objects.top.Transparency = EspLibrary.options.nameTransparency
-                objects.top.Color = color or EspLibrary.options.espColor
+                objects.top.Color = color or EspLibrary.options.NpcespColor
                 objects.top.Text = player.Name
                 objects.top.Position = round(position + vector2New(size.X * 0.5, -(objects.top.TextBounds.Y + 2)))
 
@@ -537,7 +538,7 @@ function EspLibrary.Init()
                 objects.side.Font = EspLibrary.options.font
                 objects.side.Size = EspLibrary.options.fontSize
                 objects.side.Transparency = EspLibrary.options.healthTextTransparency
-                objects.side.Color = color or EspLibrary.options.espColor
+                objects.side.Color = color or EspLibrary.options.NpcespColor
                 objects.side.Text = health .. EspLibrary.options.healthTextSuffix
                 objects.side.Position = round(position + vector2New(size.X + 3, -3))
 
@@ -545,12 +546,12 @@ function EspLibrary.Init()
                 objects.bottom.Font = EspLibrary.options.font
                 objects.bottom.Size = EspLibrary.options.fontSize
                 objects.bottom.Transparency = EspLibrary.options.distanceTransparency
-                objects.bottom.Color = color or EspLibrary.options.espColor
+                objects.bottom.Color = color or EspLibrary.options.NpcespColor
                 objects.bottom.Text = tostring(round(distance)) .. EspLibrary.options.distanceSuffix
                 objects.bottom.Position = round(position + vector2New(size.X * 0.5, size.Y + 1))
 
                 objects.box.Visible = show and EspLibrary.options.boxes
-                objects.box.Color = color or EspLibrary.options.espColor
+                objects.box.Color = color or EspLibrary.options.NpcespColor
                 objects.box.Transparency = EspLibrary.options.boxesTransparency
                 objects.box.Size = size
                 objects.box.Position = position
@@ -561,7 +562,7 @@ function EspLibrary.Init()
                 objects.boxOutline.Position = position
 
                 objects.boxFill.Visible = show and EspLibrary.options.boxFill
-                objects.boxFill.Color = color or EspLibrary.options.espColor
+                objects.boxFill.Color = color or EspLibrary.options.NpcespColor
                 objects.boxFill.Transparency = EspLibrary.options.boxFillTransparency
                 objects.boxFill.Size = size
                 objects.boxFill.Position = position
@@ -578,7 +579,7 @@ function EspLibrary.Init()
                 objects.healthBarOutline.Position = healthBarPosition - vector2New(1, -1)
 
                 objects.line.Visible = show and EspLibrary.options.tracers
-                objects.line.Color = color or EspLibrary.options.espColor
+                objects.line.Color = color or EspLibrary.options.NpcespColor
                 objects.line.Transparency = EspLibrary.options.tracerTransparency
                 objects.line.From =
                     origin == "Mouse" and userInputService:GetMouseLocation() or
@@ -657,7 +658,7 @@ function EspLibrary.Init()
                 highlight.Enabled = canShow
                 highlight.DepthMode = EspLibrary.options.visibleOnly and Enum.HighlightDepthMode.Occluded or Enum.HighlightDepthMode.AlwaysOnTop
                 highlight.Adornee = character
-                highlight.FillColor = color or EspLibrary.options.espColor
+                highlight.FillColor = color or EspLibrary.options.NpcespColor
                 highlight.FillTransparency = EspLibrary.options.chamsFillTransparency
                 highlight.OutlineColor = color or EspLibrary.options.chamsOutlineColor
                 highlight.OutlineTransparency = EspLibrary.options.chamsOutlineTransparency
