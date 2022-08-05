@@ -305,6 +305,36 @@ function EspLibrary.Unload()
     runService:UnbindFromRenderStep("esp_rendering")
 end
 
+function EspLibrary.AddNpc(path, type)
+    if type == "ChildAdded" then
+        path.ChildAdded:Connect(function(npc)
+            ESPLib.AddEsp(npc, "Npc")
+            ESPLib.AddChams(npc, "Npc")
+        end)
+        path.ChildRemoved:Connect(function(npc)
+            ESPLib.RemoveEsp(npc)
+            ESPLib.RemoveChams(npc)
+        end)
+        for _, npc in pairs(path:GetChildren()) do
+            ESPLib.AddEsp(npc, "Npc")
+            ESPLib.AddChams(npc, "Npc")
+        end
+    elseif type == "DescendantAdded" then
+        path.DescendantAdded:Connect(function(npc)
+            ESPLib.AddEsp(npc, "Npc")
+            ESPLib.AddChams(npc, "Npc")
+        end)
+        path.DescendantRemoving:Connect(function(npc)
+            ESPLib.RemoveEsp(npc)
+            ESPLib.RemoveChams(npc)
+        end)
+        for _, npc in pairs(path:GetDescendants()) do
+            ESPLib.AddEsp(npc, "Npc")
+            ESPLib.AddChams(npc, "Npc")
+        end
+    end
+end
+
 function EspLibrary.Init()
     insert(EspLibrary.conns, players.PlayerAdded:Connect(function(player)
         EspLibrary.AddEsp(player, "Player")
