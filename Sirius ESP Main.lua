@@ -308,29 +308,29 @@ end
 function EspLibrary.AddNpc(path, type)
     if type == "ChildAdded" then
         path.ChildAdded:Connect(function(npc)
-            ESPLib.AddEsp(npc, "Npc")
-            ESPLib.AddChams(npc, "Npc")
+            EspLibrary.AddEsp(npc, "Npc")
+            EspLibrary.AddChams(npc, "Npc")
         end)
         path.ChildRemoved:Connect(function(npc)
-            ESPLib.RemoveEsp(npc)
-            ESPLib.RemoveChams(npc)
+            EspLibrary.RemoveEsp(npc)
+            EspLibrary.RemoveChams(npc)
         end)
         for _, npc in pairs(path:GetChildren()) do
-            ESPLib.AddEsp(npc, "Npc")
-            ESPLib.AddChams(npc, "Npc")
+            EspLibrary.AddEsp(npc, "Npc")
+            EspLibrary.AddChams(npc, "Npc")
         end
     elseif type == "DescendantAdded" then
         path.DescendantAdded:Connect(function(npc)
-            ESPLib.AddEsp(npc, "Npc")
-            ESPLib.AddChams(npc, "Npc")
+            EspLibrary.AddEsp(npc, "Npc")
+            EspLibrary.AddChams(npc, "Npc")
         end)
         path.DescendantRemoving:Connect(function(npc)
-            ESPLib.RemoveEsp(npc)
-            ESPLib.RemoveChams(npc)
+            EspLibrary.RemoveEsp(npc)
+            EspLibrary.RemoveChams(npc)
         end)
         for _, npc in pairs(path:GetDescendants()) do
-            ESPLib.AddEsp(npc, "Npc")
-            ESPLib.AddChams(npc, "Npc")
+            EspLibrary.AddEsp(npc, "Npc")
+            EspLibrary.AddChams(npc, "Npc")
         end
     end
 end
